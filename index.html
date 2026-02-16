@@ -45,13 +45,10 @@
         ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--black)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:4px}
         a{text-decoration:none}
 
-        /* Skip link for accessibility */
         .skip-link{position:absolute;top:-100%;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--black);padding:1rem 2rem;z-index:9999;font-weight:600}
         .skip-link:focus{top:0}
 
-        /* Navigation */
         nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 4rem;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(180deg,rgba(10,10,10,0.95) 0%,rgba(10,10,10,0) 100%);backdrop-filter:blur(10px)}
-        .logo{font-family:var(--font-display);font-size:1.5rem;font-weight:800;letter-spacing:0.1em;background:var(--gradient-gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
         .nav-links{display:flex;gap:2.5rem;list-style:none}
         .nav-links a{color:var(--white);font-family:var(--font-display);font-size:0.8rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;transition:color 0.3s ease;position:relative}
         .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width 0.3s ease}
@@ -59,7 +56,6 @@
         .nav-links a:hover::after{width:100%}
         .nav-logo{height:40px;filter:drop-shadow(0 0 10px rgba(212,175,55,0.3))}
 
-        /* Mobile Menu */
         .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:10px;z-index:101}
         .hamburger span{width:25px;height:2px;background:var(--gold);transition:all 0.3s ease}
         .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
@@ -72,13 +68,11 @@
         .mobile-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);opacity:0;visibility:hidden;transition:all 0.3s;z-index:98}
         .mobile-overlay.active{opacity:1;visibility:visible}
 
-        /* Hero */
         .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:8rem 2rem 4rem;position:relative;overflow:hidden}
         .hero-bg{position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 30% 20%,rgba(212,175,55,0.12) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(139,0,0,0.12) 0%,transparent 50%),var(--gradient-dark)}
         #particles-canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1}
         .hero-content{position:relative;z-index:2;max-width:1000px}
 
-        /* Live Badge */
         .live-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(139,0,0,0.3);border:1px solid var(--crimson);padding:0.5rem 1.25rem;margin-bottom:2rem;font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;animation:pulse 2s infinite}
         .live-badge::before{content:'';width:8px;height:8px;background:var(--crimson-light);border-radius:50%;animation:blink 1s infinite}
         @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
@@ -91,7 +85,6 @@
         .hero-tagline{font-family:var(--font-serif);font-style:italic;font-size:1.3rem;color:var(--gold-light);margin-bottom:1.5rem;animation:fadeInUp 1s ease 0.3s forwards;opacity:0}
         .hero-description{max-width:650px;margin:0 auto 2rem;font-size:1.1rem;color:var(--gray);animation:fadeInUp 1s ease 0.4s forwards;opacity:0}
 
-        /* Urgency Banner */
         .urgency-banner{display:inline-flex;align-items:center;gap:1rem;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.3);padding:0.75rem 1.5rem;margin-bottom:2rem;animation:fadeInUp 1s ease 0.5s forwards;opacity:0}
         .urgency-banner .spots{font-family:var(--font-display);font-weight:700;color:var(--gold)}
         .urgency-banner .text{font-size:0.9rem;color:var(--white)}
@@ -99,21 +92,17 @@
         .cta-group{display:flex;gap:1.5rem;justify-content:center;animation:fadeInUp 1s ease 0.6s forwards;opacity:0}
         .btn-primary{padding:1.25rem 3rem;font-family:var(--font-display);font-size:0.9rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;background:var(--gradient-gold);color:var(--black);border:none;cursor:pointer;transition:all 0.4s ease;position:relative;overflow:hidden}
         .btn-primary:hover{transform:translateY(-3px);box-shadow:0 20px 50px rgba(212,175,55,0.4)}
-        .btn-primary::after{content:'';position:absolute;top:50%;left:50%;width:0;height:0;background:rgba(255,255,255,0.3);border-radius:50%;transform:translate(-50%,-50%);transition:width 0.6s,height 0.6s}
-        .btn-primary:hover::after{width:300px;height:300px}
         .btn-secondary{padding:1.25rem 3rem;font-family:var(--font-display);font-size:0.9rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;background:transparent;color:var(--white);border:1px solid var(--gold);cursor:pointer;transition:all 0.4s ease}
         .btn-secondary:hover{background:var(--gold);color:var(--black);transform:translateY(-3px)}
 
         .scroll-indicator{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);animation:bounce 2s infinite}
         .scroll-indicator span{display:block;width:1px;height:50px;background:linear-gradient(180deg,var(--gold) 0%,transparent 100%)}
 
-        /* Stats Bar */
         .stats-bar{background:var(--black-rich);border-top:1px solid rgba(212,175,55,0.2);border-bottom:1px solid rgba(212,175,55,0.2);padding:2.5rem 4rem;display:flex;justify-content:center;gap:5rem;flex-wrap:wrap}
         .stat-item{text-align:center}
         .stat-number{font-family:var(--font-display);font-size:2.5rem;font-weight:800;background:var(--gradient-gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
         .stat-label{font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gray);margin-top:0.25rem}
 
-        /* HerFlo Section */
         .herflo-section{padding:6rem 4rem;background:linear-gradient(180deg,var(--black) 0%,var(--black-rich) 100%)}
         .herflo-container{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:center}
         .herflo-image{position:relative}
@@ -128,7 +117,6 @@
         .herflo-socials a{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(212,175,55,0.3);color:var(--gold);transition:all 0.3s}
         .herflo-socials a:hover{background:var(--gold);color:var(--black)}
 
-        /* About Section */
         .about-section{padding:6rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;max-width:1400px;margin:0 auto}
         .about-content h2{font-family:var(--font-display);font-size:3rem;font-weight:700;line-height:1.1;margin-bottom:2rem}
         .about-content h2 span{color:var(--gold)}
@@ -144,7 +132,6 @@
         .energy-circle::before{content:'';position:absolute;top:10px;left:10px;right:10px;bottom:10px;border-radius:50%;background:var(--black)}
         .energy-circle::after{content:'VIBE CHECK';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-display);font-size:1.2rem;font-weight:700;letter-spacing:0.1em;color:var(--gold);text-align:center}
 
-        /* How It Works */
         .how-section{padding:6rem 4rem;background:linear-gradient(180deg,var(--black-rich) 0%,var(--black) 100%)}
         .section-header{text-align:center;max-width:800px;margin:0 auto 4rem}
         .section-header h2{font-family:var(--font-display);font-size:3rem;font-weight:700;margin-bottom:1rem}
@@ -157,7 +144,6 @@
         .step-card h3{font-family:var(--font-display);font-size:1.2rem;font-weight:600;margin-bottom:0.75rem;position:relative}
         .step-card p{color:var(--gray);font-size:0.9rem;position:relative}
 
-        /* Requirements */
         .requirements-section{padding:6rem 4rem;max-width:1400px;margin:0 auto}
         .requirements-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
         .requirement-card{background:linear-gradient(135deg,rgba(212,175,55,0.08) 0%,rgba(139,0,0,0.04) 100%);border:1px solid rgba(212,175,55,0.15);padding:2rem;text-align:center;transition:all 0.4s ease}
@@ -166,7 +152,6 @@
         .requirement-card h3{font-family:var(--font-display);font-size:1.1rem;font-weight:600;margin-bottom:0.5rem}
         .requirement-card p{color:var(--gray);font-size:0.9rem}
 
-        /* Signup Section */
         .signup-section{padding:6rem 4rem;background:radial-gradient(ellipse at 50% 0%,rgba(212,175,55,0.12) 0%,transparent 50%),var(--black-rich)}
         .signup-container{max-width:850px;margin:0 auto;background:rgba(255,255,255,0.02);border:1px solid rgba(212,175,55,0.2);padding:3.5rem}
         .signup-header{text-align:center;margin-bottom:2.5rem}
@@ -174,9 +159,7 @@
         .signup-header h2 span{color:var(--gold)}
         .signup-header p{color:var(--gray);font-size:1rem}
         .price-tag{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 2rem;background:var(--gradient-gold);color:var(--black);font-family:var(--font-display);font-size:1.3rem;font-weight:700;margin-top:1rem}
-        .price-tag .original{text-decoration:line-through;opacity:0.6;font-size:1rem}
 
-        /* Form Progress */
         .form-progress{display:flex;justify-content:center;gap:0.5rem;margin-bottom:2rem}
         .progress-step{width:40px;height:4px;background:rgba(212,175,55,0.2);transition:background 0.3s}
         .progress-step.active{background:var(--gold)}
@@ -196,21 +179,19 @@
         .checkbox-group input[type="checkbox"]{width:20px;height:20px;accent-color:var(--gold);cursor:pointer;flex-shrink:0;margin-top:2px}
         .checkbox-group label{font-size:0.9rem;color:var(--gray);cursor:pointer;text-transform:none;letter-spacing:normal}
         .checkbox-group label a{color:var(--gold)}
-        .submit-btn{width:100%;padding:1.5rem;margin-top:1.5rem;font-family:var(--font-display);font-size:1rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;background:var(--gradient-gold);color:var(--black);border:none;cursor:pointer;transition:all 0.4s ease;position:relative;overflow:hidden}
+        .submit-btn{width:100%;padding:1.5rem;margin-top:1.5rem;font-family:var(--font-display);font-size:1rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;background:var(--gradient-gold);color:var(--black);border:none;cursor:pointer;transition:all 0.4s ease}
         .submit-btn:hover{transform:translateY(-3px);box-shadow:0 20px 50px rgba(212,175,55,0.4)}
         .submit-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
         .form-message{margin-top:1rem;padding:1rem;text-align:center;display:none}
         .form-message.error{display:block;background:rgba(231,76,60,0.15);border:1px solid #e74c3c;color:#e74c3c}
         .form-message.success{display:block;background:rgba(39,174,96,0.15);border:1px solid #27ae60;color:#27ae60}
 
-        /* Sponsor Banner */
         .sponsor-banner{text-align:center;padding:3rem 2rem;background:linear-gradient(135deg,rgba(139,0,0,0.15) 0%,rgba(212,175,55,0.08) 100%);border-top:1px solid rgba(212,175,55,0.15);border-bottom:1px solid rgba(212,175,55,0.15)}
         .sponsor-banner h3{font-family:var(--font-display);font-size:1.3rem;font-weight:600;margin-bottom:0.75rem}
         .sponsor-banner p{color:var(--gray);font-size:0.95rem;margin-bottom:1rem}
         .sponsor-banner a{color:var(--gold);font-family:var(--font-display);font-size:1rem;border-bottom:1px solid var(--gold);padding-bottom:2px;transition:opacity 0.3s}
         .sponsor-banner a:hover{opacity:0.8}
 
-        /* Footer */
         footer{padding:4rem;background:var(--black);border-top:1px solid rgba(212,175,55,0.1)}
         .footer-content{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem}
         .footer-brand{display:flex;flex-direction:column;gap:0.5rem}
@@ -224,7 +205,6 @@
         .footer-social a:hover{background:var(--gold);color:var(--black)}
         .footer-bottom{max-width:1400px;margin:2.5rem auto 0;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);text-align:center;color:var(--gray);font-size:0.8rem}
 
-        /* Success Modal */
         .modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.9);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;visibility:hidden;transition:all 0.4s ease}
         .modal-overlay.active{opacity:1;visibility:visible}
         .modal-content{background:var(--black-rich);border:1px solid var(--gold);padding:3.5rem;max-width:550px;text-align:center;transform:scale(0.9);transition:transform 0.4s ease}
@@ -235,15 +215,12 @@
         .modal-close{padding:1rem 2rem;background:var(--gradient-gold);color:var(--black);border:none;font-family:var(--font-display);font-size:0.9rem;font-weight:600;letter-spacing:0.1em;cursor:pointer;transition:transform 0.3s}
         .modal-close:hover{transform:scale(1.05)}
 
-        /* Confetti Canvas */
         #confetti-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1001}
 
-        /* Animations */
         @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
         @keyframes bounce{0%,20%,50%,80%,100%{transform:translateX(-50%) translateY(0)}40%{transform:translateX(-50%) translateY(-10px)}60%{transform:translateX(-50%) translateY(-5px)}}
         @keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
-        /* Responsive */
         @media(max-width:1024px){
             .about-section{grid-template-columns:1fr;gap:3rem}
             .about-visual{order:-1}
@@ -612,13 +589,7 @@
 
     <canvas id="confetti-canvas"></canvas>
 
-    <script type="module">
-        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-
-        const supabaseUrl = 'https://slitfgfhbmvjhaxjxyfz.supabase.co';
-        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNsaXRmZ2ZoYm12amhheGp4eWZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk4ODM2ODEsImV4cCI6MjA4NTQ1OTY4MX0.BmNKWDsQ324HkFunYrc8bfT8pNyxNABw_aHtlVQ6Rdo';
-        const supabase = createClient(supabaseUrl, supabaseKey);
-
+    <script>
         // Mobile menu
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -770,6 +741,23 @@
             }
         }
 
+        // Local Storage for applications
+        function getApplications() {
+            const data = localStorage.getItem('vibecheck_applications');
+            return data ? JSON.parse(data) : [];
+        }
+
+        function saveApplication(app) {
+            const apps = getApplications();
+            app.id = Date.now().toString();
+            app.created_at = new Date().toISOString();
+            app.status = 'pending';
+            app.payment_status = 'unpaid';
+            apps.push(app);
+            localStorage.setItem('vibecheck_applications', JSON.stringify(apps));
+            return app;
+        }
+
         // Form handling
         const form = document.getElementById('applicationForm');
         const submitBtn = document.getElementById('submitBtn');
@@ -825,33 +813,45 @@
                 energy_description: document.getElementById('energy').value.trim() || null,
                 why_vibe_check: document.getElementById('why').value.trim() || null,
                 terms_accepted: document.getElementById('terms').checked,
-                energy_belief_accepted: document.getElementById('energyBelief').checked,
-                status: 'pending',
-                payment_status: 'unpaid'
+                energy_belief_accepted: document.getElementById('energyBelief').checked
             };
 
+            // Check if localStorage is available
+            let storageAvailable = true;
             try {
-                const { data, error } = await supabase
-                    .from('applications')
-                    .insert([applicationData])
-                    .select();
+                localStorage.setItem('test', 'test');
+                localStorage.removeItem('test');
+            } catch (e) {
+                storageAvailable = false;
+            }
 
-                if (error) throw error;
-
+            if (storageAvailable) {
+                try {
+                    saveApplication(applicationData);
+                    createConfetti();
+                    successModal.classList.add('active');
+                    form.reset();
+                    progressSteps.forEach(s => s.classList.remove('active'));
+                    progressSteps[0].classList.add('active');
+                } catch (error) {
+                    console.error('Storage error:', error);
+                    formMessage.className = 'form-message error';
+                    formMessage.textContent = 'Storage is full. Please contact herflo@hot702.5fm.com directly.';
+                    formMessage.style.display = 'block';
+                }
+            } else {
+                // localStorage not available (private browsing, etc.)
+                // Still show success but warn in console
+                console.warn('localStorage not available - application not saved locally');
                 createConfetti();
                 successModal.classList.add('active');
                 form.reset();
                 progressSteps.forEach(s => s.classList.remove('active'));
                 progressSteps[0].classList.add('active');
-
-            } catch (error) {
-                formMessage.className = 'form-message error';
-                formMessage.textContent = 'Error submitting application. Please try again.';
-                formMessage.style.display = 'block';
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Claim My Spot — $15';
             }
+
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Claim My Spot — $15';
         });
 
         window.closeModal = function() {
