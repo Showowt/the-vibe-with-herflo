@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin Login | The Vibe Check</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F4E4BC;
+            --crimson: #8B0000;
+            --black: #0A0A0A;
+            --black-rich: #121212;
+            --white: #FAFAFA;
+            --gray: #888;
+            --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #F4E4BC 50%, #D4AF37 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--black);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 30% 20%, rgba(212,175,55,0.1) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 80%, rgba(139,0,0,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        .login-container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 420px;
+            padding: 2rem;
+        }
+        .login-card {
+            background: rgba(18, 18, 18, 0.9);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 3rem 2.5rem;
+            backdrop-filter: blur(20px);
+            animation: fadeIn 0.6s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .logo-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .logo-container img {
+            height: 60px;
+            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.3));
+        }
+        .login-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        .login-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: var(--white);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.05);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+        }
+        .form-group input::placeholder {
+            color: var(--gray);
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 1.25rem;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            background: var(--gradient-gold);
+            color: var(--black);
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin-top: 1rem;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+        }
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .error-message {
+            background: rgba(231, 76, 60, 0.1);
+            border: 1px solid rgba(231, 76, 60, 0.3);
+            color: #e74c3c;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            display: none;
+            animation: shake 0.5s ease;
+        }
+        .error-message.show {
+            display: block;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        .back-link:hover {
+            color: var(--gold);
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 2rem 0;
+            color: var(--gray);
+            font-size: 0.8rem;
+        }
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(212, 175, 55, 0.2);
+        }
+        .divider span {
+            padding: 0 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .security-note {
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.75rem;
+            margin-top: 2rem;
+            opacity: 0.7;
+        }
+        .security-note span {
+            color: var(--gold);
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="logo-container">
+                <img src="logo.png" alt="The Vibe Check">
+            </div>
+            <h1 class="login-title">Admin Access</h1>
+            <p class="login-subtitle">Sign in to manage applications</p>
+
+            <div class="error-message" id="errorMessage"></div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="admin@vibecheck.com" autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter your password" autocomplete="current-password">
+                </div>
+                <button type="submit" class="submit-btn" id="submitBtn">Sign In</button>
+            </form>
+
+            <a href="/" class="back-link">Back to Main Site</a>
+
+            <p class="security-note">Protected by <span>Supabase Auth</span></p>
+        </div>
+    </div>
+
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+        const supabaseUrl = 'https://slitfgfhbmvjhaxjxyfz.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNsaXRmZ2ZoYm12amhheGp4eWZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk4ODM2ODEsImV4cCI6MjA4NTQ1OTY4MX0.BmNKWDsQ324HkFunYrc8bfT8pNyxNABw_aHtlVQ6Rdo';
+        const supabase = createClient(supabaseUrl, supabaseKey);
+
+        // Check if already logged in
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session) {
+            window.location.href = '/admin.html';
+        }
+
+        const form = document.getElementById('loginForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const errorMessage = document.getElementById('errorMessage');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            errorMessage.classList.remove('show');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Signing In...';
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+
+            try {
+                const { data, error } = await supabase.auth.signInWithPassword({
+                    email,
+                    password
+                });
+
+                if (error) throw error;
+
+                // Success - redirect to admin
+                window.location.href = '/admin.html';
+
+            } catch (error) {
+                errorMessage.textContent = error.message || 'Invalid email or password';
+                errorMessage.classList.add('show');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Sign In';
+            }
+        });
+    </script>
+</body>
+</html>
